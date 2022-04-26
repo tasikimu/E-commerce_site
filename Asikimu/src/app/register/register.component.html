@@ -1,31 +1,32 @@
 <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <form (ngSubmit)="onFormSubmit()">
     <mat-card class="box">
       <mat-card-header>
         <mat-card-title>Register</mat-card-title>
       </mat-card-header>
   
       <form class="example-form">
-        
+      
         <mat-card-content>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="FirstName" required="Required">
+            <input name="UserName" matInput placeholder="UserName" required="Required">
           </mat-form-field>
           
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="LastName" required="Required">
+            <input name="LoginName" matInput placeholder="LoginName" required="Required">
           </mat-form-field>
           
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" required="Required">
+            <input name="Address" matInput placeholder="Address" required="Required">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" required="Required">
+            <input name="Email" matInput placeholder="Email" required="Required">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input type="password" matInput placeholder="Password" required="Required">
+            <input type="password" name="Password" matInput placeholder="Password" required="Required">
           </mat-form-field>
           
   
@@ -35,4 +36,5 @@
   
       </form>
     </mat-card>
+    </form>
   </div>
