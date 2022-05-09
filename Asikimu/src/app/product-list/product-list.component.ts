@@ -3,11 +3,11 @@ import { Product } from '../product.model';
 import { ProductService } from '../services/product.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductListComponent {
   products: Product[] = [];
 
   constructor(private productService: ProductService) { }

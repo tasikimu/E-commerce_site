@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,33 +7,36 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
-  model : any={};    
+  // model : any={}; 
+
     
-  errorMessage:string;    
-  constructor(private router:Router,private LoginService: LoginService) { }    
+  // errorMessage:string;    
+  constructor() { }    
     
     
   ngOnInit() {    
-    sessionStorage.removeItem('UserName');    
-    sessionStorage.clear();    
+    localStorage.getItem('UserName');
+    // localStorage.removeItem('UserName');    
+    // localStorage.clear();    
   }
 
-  login(){    
-    debugger;    
-    this.LoginService.Login(this.model).subscribe(    
-      data => {    
-        debugger;    
-        if(data.Status=="Success")    
-        {       
-          this.router.navigate(['/Appcomponent']);    
-          debugger;    
-        }    
-        else{    
-          this.errorMessage = data.Message;    
-        }    
-      },    
-      error => {    
-        this.errorMessage = error.message;    
-      });    
-  };    
+  // login(){    
+  //   debugger;    
+  //   this.LoginService.Login(this.model).subscribe(    
+  //     data => {    
+  //       debugger;    
+  //       if(data.Status=="Success")    
+  //       {       
+  //         this.router.navigate(['./Appcomponent']);  
+  //         sessionStorage.getItem('UserName');  
+  //         debugger;    
+  //       }    
+  //       else{    
+  //         this.errorMessage = data.Message;    
+  //       }    
+  //     },    
+  //     error => {    
+  //       this.errorMessage = error.message;    
+  //     });    
+  // };    
  }    
