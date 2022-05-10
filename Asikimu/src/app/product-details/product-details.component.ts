@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product.model';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -13,11 +14,11 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   displayedImg = 0;
   
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // First get the product id from the current route.
-    const id = +this.route.snapshot.params['productId'];
+    const id = +this.route.snapshot.params['Id'];
     // const routeParams = this.route.snapshot.paramMap;
     // const productIdFromRoute = Number(routeParams.get('productId'));
   
@@ -26,6 +27,8 @@ export class ProductDetailsComponent implements OnInit {
     // this.product = products.find(product => product.id === productIdFromRoute);
   }
 
-  addToCart(product: Product){}
+  addToCart(product: Product){
+    this.cartService.addItem(product)
+  }
 
 }

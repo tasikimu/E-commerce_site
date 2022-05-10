@@ -8,7 +8,7 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  // items = this.cartService.getItems();
+  items = this.cartService.getItems();
 
   checkoutForm = this.formbuilder.group({
     name: '',
@@ -18,14 +18,14 @@ export class CartComponent implements OnInit {
     city: '',
   });
 
-  constructor(private cartService: CartService, private formbuilder: FormBuilder) { }
+  constructor(private cartService: CartService, private formbuilder: FormBuilder, private cartservice: CartService) { }
 
   onSubmit(): void{
-    //process of checkout
-    // this.items = this.cartService.clearCart();
-    // window.alert('Your order  has been subitted');
-    // console.warn('Your order has been submitted', this.checkoutForm.value); 
-    // this.checkoutForm.reset();
+    // process of checkout
+    this.items = this.cartService.clearCart();
+    window.alert('Your order  has been subitted');
+    console.warn('Your order has been submitted', this.checkoutForm.value); 
+    this.checkoutForm.reset();
   }
 
   ngOnInit(): void {

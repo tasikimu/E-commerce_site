@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -10,15 +10,9 @@ import { UserService } from '../services/user.service';
 export class RegisterComponent implements OnInit {
   submitted = false;
 
-  form = new FormGroup({
-      UserName: new FormControl('', Validators.required),
-      Fullname:new FormControl('', Validators.required),
-      Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      Email: new FormControl('', [Validators.required, Validators.email]),
-      Address: new FormControl('', Validators.required),
-    });
+  form : FormGroup;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private formBuilder: FormBuilder,) { }
 
   onFormSubmit(): void 
   {
@@ -31,6 +25,13 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      UserName: ['', Validators.required],
+      Fullname: ['', Validators.required],
+      Address: ['', Validators.required],
+      Email: ['', Validators.required, Validators.required],
+      Password: ['', [Validators.required, Validators.minLength(6)]]
+  });
   }
 
   resetForm(form?: NgForm){
@@ -38,6 +39,7 @@ export class RegisterComponent implements OnInit {
     form.reset();
   }
 
+  // convenience getter for easy access to form fields
   get f(){
     return this.form.controls;
   }

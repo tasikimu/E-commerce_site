@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Login Page';
+  itemInCart: number;
+
+  constructor(private cartService: CartService){}
+
+  ngOnInit(){
+    this.cartService.cartItems.subscribe(d => {
+      this.itemInCart = d.length
+      console.log(d);
+    })
+  }
 }

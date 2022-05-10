@@ -4,7 +4,7 @@
 <div class="images" *ngFor="let image of product.imgUrls; let i = index">
   <img [src]="image" alt="" (mouseenter)="displayedImg = id">
   <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency:'ZAR ' }}</h4>
+  <h4>{{ product.price | currency:'R ' }}</h4>
   <p>{{ product.description }}</p>
   <button class="btn btn-info" type="button" (click)="addToCart(product)">Buy</button>
 </div>
