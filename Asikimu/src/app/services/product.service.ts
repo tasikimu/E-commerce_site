@@ -40,6 +40,16 @@ export class ProductService {
 
   getProduct(id: number){
     return this.products.find(product =>
-      product.id === id);
+      product.Id === id);
   }
+
+//   getProducts(){
+//     return this.http.get<Product[]>(`${environment.apiUrl}/api/Product`);
+//   }
+
+//   getProduct(id: number){
+//     return this.products.find(product =>
+//       product.Id === id);
+//   }
+// }
 }

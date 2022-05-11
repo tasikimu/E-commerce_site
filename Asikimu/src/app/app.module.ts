@@ -16,7 +16,6 @@ import { RouterModule } from '@angular/router';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { ProductsComponent } from './products/products.component';
     ProductDetailsComponent,
     ShippingComponent,
     ProductListComponent,
-    ProductsComponent
   ],
   imports: [
     BrowserModule,

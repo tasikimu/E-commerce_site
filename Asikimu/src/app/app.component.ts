@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from './services/cart.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'Login Page';
   itemInCart: number;
 
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService, private userService: UserService){}
 
   ngOnInit(){
     this.cartService.cartItems.subscribe(d => {
@@ -18,4 +19,9 @@ export class AppComponent {
       console.log(d);
     })
   }
+
+  logout(){
+  this.userService.logout();
+  }
+
 }

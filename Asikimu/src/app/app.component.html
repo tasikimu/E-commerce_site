@@ -1,7 +1,10 @@
 <mat-toolbar color="primary" class="app-header">
   <div>
     <a routerLink="products">Products</a>
-
+  </div>
+  <div>
+    
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
   <div><a class="button fancy-button" routerLink="/cart">
     <i class="material-icons">shopping_cart</i><span class="cart"><i>{{itemInCart}}</i></span></a></div>

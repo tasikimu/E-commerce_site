@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +10,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  returnUrl: string;
+
+  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder ) {
+   
+   }
+   loginForm: FormGroup;
+   isSubmitted  =  false;
+   get formControls() { return this.loginForm.controls; }
+
+   login(){
+    console.log(this.loginForm.value);
+    this.isSubmitted = true;
+    if(this.loginForm.invalid){
+      return;
+    }
+    this.userService.login(this.loginForm.value);
+    this.router.navigateByUrl('');
+    // data => {
+    //   this.router.navigate([this.returnUrl]);
+    // }
+    // error => {
+    //   this.error = error;
+    //   this.loading =false;
+    // }
+  }
+
+  ngOnInit() {
+    this.loginForm  =  this.formBuilder.group({
+        UserName: ['', Validators.required],
+        Password: ['', Validators.required]
+    });
+}
+
   // model : any={}; 
 
     
   // errorMessage:string;    
-  constructor() { }    
+  // constructor() { }    
     
     
-  ngOnInit() {    
-    localStorage.getItem('UserName');
+  // ngOnInit() {    
+  //   localStorage.getItem('UserName');
     // localStorage.removeItem('UserName');    
     // localStorage.clear();    
   }
@@ -39,4 +75,3 @@ export class LoginComponent implements OnInit {
   //       this.errorMessage = error.message;    
   //     });    
   // };    
- }    

@@ -16,4 +16,11 @@ export class ProductListComponent {
     this.products = this.productService.getProducts();
   }
 
+  // ngOnInit(): void {
+  //   this.productService.getProducts().subscribe((products: Product[]) => {
+  //     console.log(products);
+  //     this.products = products;
+  //   });
+  // }
+
 }

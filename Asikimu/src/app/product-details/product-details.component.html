@@ -1,20 +1,20 @@
 <h2>Product Details</h2>
 <div class="row">
   <div class="col-sm-12 col-md-2">
-<div class="images" *ngFor="let image of product.imgUrls; let i = index">
+<div class="images" *ngFor="let image of product.Image; let i = index">
   <img [src]="image" alt="" (mouseenter)="displayedImg = id">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency:'R ' }}</h4>
-  <p>{{ product.description }}</p>
+  <h3>{{ product.Name }}</h3>
+  <h4>{{ product.Price | currency:'R ' }}</h4>
+  <p>{{ product.Description }}</p>
   <button class="btn btn-info" type="button" (click)="addToCart(product)">Buy</button>
 </div>
 <div class="col-sm-12 col-md-5">
-  <img [src]="product.imgUrls[displayedImg]" alt="">
+  <img [src]="product.Image[displayedImg]" alt="">
 </div>
 <div class="col-sm-12 col-md-5">
   <!-- <h3>{{product.name}</h3>
-  <h5>{{product.description}}</h5>
-  <h2>{{product.price}</h2> -->
-</div>
+  <h5>{{product.Description}}</h5>
+  <h2>{{product.Price}</h2> --> 
+</div>                      
 </div>
 </div>
