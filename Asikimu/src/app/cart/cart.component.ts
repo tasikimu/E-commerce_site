@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { CartService } from '../services/cart.service';
 })
 
 export class CartComponent implements OnInit {
-  items: Product[] = [];
+  items: any[] = [];
   total: number;
   // items = this.cartService.getItems();
 
@@ -17,7 +16,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cartService.cartItems.subscribe(data => {
       this.items = data
 
@@ -28,6 +27,7 @@ export class CartComponent implements OnInit {
   onDelete(i: number){
     this.items.splice(i, 1);
     this.getTotal(this.items)
+    localStorage.removeItem('cart')
   }
 
   validateInput(event: any, i: number){

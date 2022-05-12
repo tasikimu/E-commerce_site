@@ -13,15 +13,15 @@ body {
 
 .app-header {
 	justify-content: space-between;
-	position: fixed;
-	top: 0;
+	/* position: fixed;
+	top: 0; */
   justify-content: space-between;
-	left: 0;
+	/* left: 0;
 	right: 0;
 	z-index: 2;
   display: flex;
   flex-direction: column;
-	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12); */
 }
 
 .main-wrapper {
@@ -206,7 +206,7 @@ body {
   app-top-bar {
     width: 100%;
     height: 68px;
-    background-color: #1976d2;
+    background-color: grey;
     padding: 16px;
     display: flex;
     flex-direction: row;
@@ -252,4 +252,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .example-full-width {
   width: 100%;
+}
+
+.footer-demo {
+  height: 100%; /* Angular material adds "height:100%" to body tag by default. So, ignore this step in real-time application */
+}
+
+.demo-section {
+  border: 1px solid #bbb;
+}
+
+footer {
+  background-color: #ddd;
+  border-top: 1px solid #bbb;
+  text-align: center;
+}
+
+#clickFooter footer:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+#btmFooter {
+  align-self: flex-end;
+}
+
+#clickFooter {
+  position: relative;
 }

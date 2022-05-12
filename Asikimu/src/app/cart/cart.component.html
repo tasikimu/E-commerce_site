@@ -1,4 +1,4 @@
-<h1>Cart</h1>
+
 <h1>Cart Details</h1>
 <div class="empty" *ngIf="items.length < 1">
   <div class="info">
@@ -11,7 +11,7 @@
   <div class="cart" *ngFor="let item of items; let i = index">
     <i class="fa fa-trash-alt text-danger" aria-hidden="true" (click)="onDelete(i)"></i>
     <div class="imgBox">
-      <img [src]="item.Image[0]" alt="" class="img">
+      <img [src]="item.Image" alt="" class="img">
     </div>
     <div class="desc">
       {{item.Description}}
