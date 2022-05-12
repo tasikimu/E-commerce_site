@@ -17,11 +17,9 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.cartItems.subscribe(data => {
-      this.items = data
+      this.items = this.cartService.cartItems.value;
 
       if(this.items) this.getTotal(this.items)
-    })
   }
 
   onDelete(i: number){
@@ -31,16 +29,16 @@ export class CartComponent implements OnInit {
   }
 
   validateInput(event: any, i: number){
-    const qty = +event.target.value;
-    if(qty < 1){
+    const quantity = +event.target.value;
+    if(quantity < 1){
     event.target.value = this.items[i].quantity;
     return;
     }
-    this.QtyUpdate(qty, i)
+    this.QtyUpdate(quantity, i)
   }
 
-  private QtyUpdate(qty: number, i: number){
-    this.items[i].quantity = qty;
+  private QtyUpdate(quantity: number, i: number){
+    this.items[i].quantity = quantity;
     this.getTotal(this.items)
   }
 
@@ -57,7 +55,7 @@ export class CartComponent implements OnInit {
   //   // process of checkout
   //   this.items = this.cartService.clearCart();
   //   window.alert('Your order  has been subitted');
-  //   console.warn('Your order has been submitted', this.checkoutForm.value); 
+  //   console.warn('Your order has been submitted', this.checkoutForm.value);
   //   this.checkoutForm.reset();
   // }
 

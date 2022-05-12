@@ -11,26 +11,27 @@
   <div class="cart" *ngFor="let item of items; let i = index">
     <i class="fa fa-trash-alt text-danger" aria-hidden="true" (click)="onDelete(i)"></i>
     <div class="imgBox">
-      <img [src]="item.Image" alt="" class="img">
+      <img [src]="item?.image" alt="" class="img">
     </div>
     <div class="desc">
-      {{item.Description}}
+      {{item?.description}}
     </div>
     <div class="Price">
-      {{item.Price | currency:'R '}}
+      {{item?.price | currency:'R '}}
     </div>
-    <input type="number" class="qty" [value]="item.qty" 
+    <input type="number" class="quantity" [value]="item?.quantity"
     (blur)="validateInput($event, i)">
     <div class="subtotal">
-      {{item.Price * item.qty | currency:'R '}}
+      {{item?.price * item?.quantity | currency:'R '}}
     </div>
   </div>
   <div class="checkout">
-    <!-- <div>SubTotal</div>
-    <b>$0</b>
+    <!-- <div>SubTotal</div> -->
+    <!-- <b>$0</b>
     <div>Shipping</div>
     <b>$0</b> -->
     <div>Total</div>
+    <br>
     <b>{{total | currency: 'R '}}</b>
     <a routerLink="/login" class="btn btn-success" (click)="onCheckOut">Check Out</a>
   </div>

@@ -17,7 +17,7 @@ export class CartService {
     if(ls) this.cartItems.next(ls);
    }
 
-  addItem(product: Product){
+  addItem(product: Product) {
     const ls = this.getCartData();
 
     let exist: Product;
@@ -45,19 +45,19 @@ export class CartService {
   setCartData(data: any){
     localStorage.setItem('cart', JSON.stringify(data));
     this.cartItems.next(this.getCartData());
-  } 
+  }
 
   //method to get data from localstorage
   getCartData(){
     return JSON.parse(localStorage.getItem('cart'));
   }
 
-     
+
   getShippingPrices(){
     return this.http.get<{type: string, Price: number}[]>(
       '/assets/shipping.json');
   }
-  
+
 
   //   const exist = this.cartItems.find((item) => {
   //     return item === product.id;

@@ -15,14 +15,14 @@
         <h3>{{ product.name }}</h3>
         <h4>{{ product.price | currency:'R ' }}</h4>
         <p>{{ product.description }}</p>
-        <button class="btn btn-info" type="button" (click)="addToCart(products)">Buy</button>
+        <button class="btn btn-info" type="button" (click)="addToCart(product)">Buy</button>
       </div>
         <!-- </h3>
         <p *ngIf="product.description">
             Description:{{product.description}}
         </p>
         <button type="button" (click)="share()">Share</button>
-        <app-product-alerts 
+        <app-product-alerts
         [product]="product"
          (notify)="onNotify()">
         </app-product-alerts> -->

@@ -45,10 +45,6 @@ export class ProductService {
 
   }
 
-  // getProducts(){
-  //   return this.products;
-  // }
-
   // getProduct(id: number){
   //   return this.products.find(product =>
   //     product.Id === id);
