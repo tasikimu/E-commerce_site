@@ -49,23 +49,4 @@ export class CartComponent implements OnInit {
 
     this.total = subs;
   }
-
-
-  // onSubmit(): void{
-  //   // process of checkout
-  //   this.items = this.cartService.clearCart();
-  //   window.alert('Your order  has been subitted');
-  //   console.warn('Your order has been submitted', this.checkoutForm.value);
-  //   this.checkoutForm.reset();
-  // }
-
-  // checkoutForm = this.formbuilder.group({
-  //   name: '',
-  //   address: '',
-  //   surname: '',
-  //   number: '',
-  //   city: '',
-  // });
-
-
 }
