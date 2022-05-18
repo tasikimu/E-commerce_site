@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component: ProductListComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent, data: {title: 'Add new User'}},
-  { path: 'products', component: ProductListComponent},
-  {path: 'products/:Id', component: ProductDetailsComponent},
+  { path: 'product', component: ProductListComponent},
+  {path: 'product-details/:id', component: ProductDetailsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'shipping', component: ShippingComponent},
 

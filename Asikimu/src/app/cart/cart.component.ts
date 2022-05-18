@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
   getTotal(data: any){
     let subs = 0;
     for(const item of data)
-    subs += item.Price * item.quantity;
+    subs += item.price * item.quantity;
 
     this.total = subs;
   }

@@ -1,20 +1,46 @@
-<h2>Product Details</h2>
-<div class="row">
-  <div class="col-sm-12 col-md-2">
-<div class="images" *ngFor="let product of products, let i = index">
-  <img [src]="products?.image" alt="" (mouseenter)="displayedImg = id">
-  <h3>{{ products?.Name }}</h3>
-  <h4>{{ products?.Price | currency:'R ' }}</h4>
-  <p>{{ products?.Description }}</p>
-  <button class="btn btn-info" type="button" (click)="addToCart(product)">Buy</button>
-</div>
-<!-- <div class="col-sm-12 col-md-5">
-  <img [src]="products?.Image[displayedImg]" alt="">
-</div> -->
-<div class="col-sm-12 col-md-5">
-  <!-- <h3>{{product.name}</h3>
-  <h5>{{product.Description}}</h5>
-  <h2>{{product.Price}</h2> --> 
-</div>                      
-</div>
+<div class="container">
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img [src]="product.image" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                        <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                <h2 class="name">
+                    {{product.name}}
+                </h2>
+                <hr />
+                <h3 class="price-container">
+                    {{product.price | currency: 'R '}}
+                </h3>
+                <hr />
+                <div class="description description-tabs">
+                    <div  class="tab-content">
+                        <div>
+                            <br />
+                            <p>
+                            {{product.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a href="javascript:void(0);" class="btn btn-success btn-lg" (click)="addToCart(product)">Add to cart {{product.price | currency:'R '}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

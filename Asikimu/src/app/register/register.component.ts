@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder,) { }
 
-  onFormSubmit() 
+  onFormSubmit()
   {
     this.submitted = true;
     if(this.form.invalid){
@@ -34,10 +34,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(){
     this.form = this.formBuilder.group({
-      UserName: ['', Validators.required],
-      Fullname: ['', Validators.required],
-      Address: ['', Validators.required],
-      Email: ['', Validators.required, Validators.email],
+      UserName: ['', [Validators.required]],
+      Fullname: ['', [Validators.required]],
+      Address: ['', [Validators.required]],
+      Email: ['', [Validators.required, Validators.email]],
       Password: ['', [Validators.required, Validators.minLength(6)]]
   });
   }

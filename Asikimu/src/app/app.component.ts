@@ -16,7 +16,7 @@ export class AppComponent {
   ngOnInit(){
     this.cartService.cartItems.subscribe(d => {
       this.itemInCart = d.length
-      console.log(d);
+      // console.log(d);
     })
   }
 

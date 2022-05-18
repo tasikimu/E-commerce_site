@@ -24,7 +24,7 @@ export class CartService {
 
     if(ls)
     exist = ls.find((item) => {
-      return item.id === product.Id;
+      return item.id === product?.id;
     });
 
     if(exist){

@@ -8,7 +8,7 @@
 </div>
 
 <ng-container *ngIf="items.length > 0">
-  <div class="cart" *ngFor="let item of items; let i = index">
+  <div class="cart" *ngFor="let item of items">
     <i class="fa fa-trash-alt text-danger" aria-hidden="true" (click)="onDelete(i)"></i>
     <div class="imgBox">
       <img [src]="item?.image" alt="" class="img">
@@ -31,8 +31,8 @@
     <div>Shipping</div>
     <b>$0</b> -->
     <div>Total</div>
-    <br>
     <b>{{total | currency: 'R '}}</b>
+    <br>
     <a routerLink="/login" class="btn btn-success" (click)="onCheckOut">Check Out</a>
   </div>
 </ng-container>

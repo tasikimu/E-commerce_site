@@ -30,7 +30,7 @@
     </div>
 
     <p [ngClass]="{ 'has-error': submitted && formControls['Address'].errors }" class="form-controller">
-      <input type="Address" placeholder="Address" formControlName="Address">
+      <input placeholder="Address" formControlName="Address">
     </p>
 
     <div *ngIf="submitted && formControls['Address'].errors" class="help-block">
@@ -38,7 +38,7 @@
     </div>
 
     <p [ngClass]="{ 'has-error': submitted && formControls['Password'].errors }">
-      <input type="Password" placeholder="Password" formControlName="Password">
+      <input type="password" placeholder="Password" formControlName="Password">
     </p>
 
     <div *ngIf="submitted && formControls['Password'].errors" class="help-block">
@@ -61,15 +61,15 @@
       <mat-card-header>
         <mat-card-title>Register</mat-card-title>
       </mat-card-header>
-  
+
       <form  [formGroup]="form" (ngSubmit)="onFormSubmit()" class="example-form">
-      
+
         <mat-card-content>
 
           <mat-form-field class="example-full-width">
             <input id="UserName" matInput formControlName="UserName" placeholder="UserName">
           </mat-form-field>
-          
+
           <mat-form-field class="example-full-width">
             <input id="Fullname" matInput formControlName="Fullname" placeholder="Fullname">
           </mat-form-field>
@@ -77,18 +77,18 @@
           <mat-form-field class="example-full-width">
             <input id="Address" matInput formControlName="Address" placeholder="Address">
           </mat-form-field>
-  
+
           <mat-form-field class="example-full-width">
             <input id="Email" matInput formControlName="Email" placeholder="Email">
           </mat-form-field>
-  
+
           <mat-form-field class="example-full-width">
             <input type="password" id="Password" matInput formControlName="Password" placeholder="Password">
           </mat-form-field>
-          
-  
+
+
         </mat-card-content>
-  
+
         <button mat-stroked-button color="accent" type="submit" class="btn-block">Register</button>
 
         <p>Already a member?

@@ -1,9 +1,8 @@
-export class Product {
-    constructor(
-        public Id:number, 
-        public Name: string, 
-        public Description :string, 
-        public Price: number,
-        public quantity: number, 
-        public Image: string[]){}
+export interface Product {
+  id:number,
+  name: string,
+  description :string,
+  price: number,
+  quantity: number,
+  image: string[];
 }

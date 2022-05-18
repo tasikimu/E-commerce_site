@@ -13,20 +13,21 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder ) {
-   
+
    }
    loginForm: FormGroup;
    isSubmitted  =  false;
-   get formControls() { return this.loginForm.controls; }
+
 
    login(){
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     this.isSubmitted = true;
     if(this.loginForm.invalid){
       return;
     }
     this.userService.login(this.loginForm.value);
     this.router.navigateByUrl('');
+    console.log(this.loginForm.value)
     // data => {
     //   this.router.navigate([this.returnUrl]);
     // }
@@ -38,40 +39,42 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm  =  this.formBuilder.group({
-        UserName: ['', Validators.required],
-        Password: ['', Validators.required]
+        UserName: ['', [Validators.required]],
+        Password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
     });
+
 }
+get formControls() { return this.loginForm.controls; }
 
-  // model : any={}; 
+  // model : any={};
 
-    
-  // errorMessage:string;    
-  // constructor() { }    
-    
-    
-  // ngOnInit() {    
+
+  // errorMessage:string;
+  // constructor() { }
+
+
+  // ngOnInit() {
   //   localStorage.getItem('UserName');
-    // localStorage.removeItem('UserName');    
-    // localStorage.clear();    
+    // localStorage.removeItem('UserName');
+    // localStorage.clear();
   }
 
-  // login(){    
-  //   debugger;    
-  //   this.LoginService.Login(this.model).subscribe(    
-  //     data => {    
-  //       debugger;    
-  //       if(data.Status=="Success")    
-  //       {       
-  //         this.router.navigate(['./Appcomponent']);  
-  //         sessionStorage.getItem('UserName');  
-  //         debugger;    
-  //       }    
-  //       else{    
-  //         this.errorMessage = data.Message;    
-  //       }    
-  //     },    
-  //     error => {    
-  //       this.errorMessage = error.message;    
-  //     });    
-  // };    
+  // login(){
+  //   debugger;
+  //   this.LoginService.Login(this.model).subscribe(
+  //     data => {
+  //       debugger;
+  //       if(data.Status=="Success")
+  //       {
+  //         this.router.navigate(['./Appcomponent']);
+  //         sessionStorage.getItem('UserName');
+  //         debugger;
+  //       }
+  //       else{
+  //         this.errorMessage = data.Message;
+  //       }
+  //     },
+  //     error => {
+  //       this.errorMessage = error.message;
+  //     });
+  // };
