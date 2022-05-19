@@ -13,42 +13,10 @@
             <h3 class="font-weight-semibold mb-2" class="text-default mb-2" data-abc="true">{{product.name}}
             </h3>
           </div>
-          <h3 class="mb-0 font-weight-semibold">{{product.price | currency: 'R'}}</h3>
-          <!-- <button type="button" class="btn bg-cart" (click)="addToCart(product)"> See </button> -->
+          <h3 class="mb-0 font-weight-semibold">{{product.price | currency: 'R '}}</h3>
         </div>
       </div>
     </a>
     </div>
   </div>
 </div>
-
-<!-- </h3>
-        <p *ngIf="product.description">
-            Description:{{product.description}}
-        </p>
-        <button type="button" (click)="share()">Share</button>
-        <app-product-alerts
-        [product]="product"
-         (notify)="onNotify()">
-        </app-product-alerts> -->
-        <!-- <h3>{{ product.name }}</h3> -->
-        <!-- <h4>{{ product.price | currency:'R ' }}</h4> -->
-        <!-- <p>{{ product.description }}</p> -->
-        <!-- <button class="btn btn-info" type="button" (click)="addToCart(product)">Buy</button> -->
-      <!-- <h2>Products</h2>
-      <div class="row">
-        <div class="col-sm-12 col-md-2"> -->
-<!-- <div *ngFor="let product of products, let i = index">
-  <h3>
-    <a
-      [title]="product.name + ' details'"
-      [routerLink]="['/product-details']">
-      <div class="images">
-    <img [src]="product?.image" alt=""/>
-  </div>
-      {{ product.name }}
-    </a>
-  </h3>
-
-  <br>
-</div> -->

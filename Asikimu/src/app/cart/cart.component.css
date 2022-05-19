@@ -35,3 +35,12 @@ b{
 .btn{
     grid-column: 1 / -1;
 }
+
+.b-bottom {
+  border-bottom: 1px solid #c8c9ca;
+}
+
+.b-top {
+  border-top: 1px solid #c8c9ca;
+}
+

@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, data: {title: 'Add new User'}},
   { path: 'product', component: ProductListComponent},
   {path: 'product-details/:id', component: ProductDetailsComponent},
+  {path: 'product-details', component: ProductDetailsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'shipping', component: ShippingComponent},
 
