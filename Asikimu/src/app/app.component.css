@@ -137,7 +137,7 @@ body {
     font-size: 14px;
   }
 
-  /* Hyperlink */
+  /* Hyperlink */ 
 
   a {
     cursor: pointer;
@@ -196,10 +196,7 @@ body {
     color: #1976d2;
   }
 
-  .fancy-button i.material-icons {
-    color: #1976d2;
-    padding-right: 4px;
-  }
+
 
   /* Top Bar */
 

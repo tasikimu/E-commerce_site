@@ -25,3 +25,11 @@
 }
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ .fancy-button i.material-icons {
+    color: #1976d2;
+    padding-right: 4px;
+  }

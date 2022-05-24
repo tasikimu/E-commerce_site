@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,13 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  returnUrl: string;
-
-  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder ) {
+  constructor(private notification: NotificationService, private userService: UserService, private router: Router, private formBuilder: FormBuilder ) {
 
    }
    loginForm: FormGroup;
    isSubmitted  =  false;
+   public invalidLogin: boolean = false;
+
 
 
    login(){
@@ -25,16 +26,12 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    this.userService.login(this.loginForm.value);
-    this.router.navigateByUrl('');
-    console.log(this.loginForm.value)
-    // data => {
-    //   this.router.navigate([this.returnUrl]);
-    // }
-    // error => {
-    //   this.error = error;
-    //   this.loading =false;
-    // }
+     this.userService.login(this.loginForm.value).subscribe((token: any) => {
+    localStorage.setItem('Token', token);
+    this.notification.showSuccess("User login successful", "Success")
+    this.router.navigateByUrl('/cart');
+     });
+
   }
 
   ngOnInit() {
@@ -44,37 +41,5 @@ export class LoginComponent implements OnInit {
     });
 
 }
-get formControls() { return this.loginForm.controls; }
-
-  // model : any={};
-
-
-  // errorMessage:string;
-  // constructor() { }
-
-
-  // ngOnInit() {
-  //   localStorage.getItem('UserName');
-    // localStorage.removeItem('UserName');
-    // localStorage.clear();
-  }
-
-  // login(){
-  //   debugger;
-  //   this.LoginService.Login(this.model).subscribe(
-  //     data => {
-  //       debugger;
-  //       if(data.Status=="Success")
-  //       {
-  //         this.router.navigate(['./Appcomponent']);
-  //         sessionStorage.getItem('UserName');
-  //         debugger;
-  //       }
-  //       else{
-  //         this.errorMessage = data.Message;
-  //       }
-  //     },
-  //     error => {
-  //       this.errorMessage = error.message;
-  //     });
-  // };
+  get formControls() { return this.loginForm.controls; }
+}

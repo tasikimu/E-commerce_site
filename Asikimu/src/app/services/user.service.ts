@@ -10,34 +10,29 @@ import { Users } from '../users.model';
 })
 export class UserService {
   readonly rootUrl = environment.apiUrl;
-  private userSubject: BehaviorSubject<Users>;
   public user: Observable<Users>;
 
 
   constructor(private http: HttpClient, private router: Router) { }
+
 
   registerUser(user : Users){
     return this.http.post(`${this.rootUrl}/api/User/Register` , user);
   }
 
   public login(user: Users){
-    return this.http.post<Users>(`${environment.apiUrl}/User/`, {user })
-    .pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userSubject.next(user);
-        return user;
-    }));
+
+    return this.http.post(`${this.rootUrl}/api/Login`, user, {responseType: 'text'});
+
   }
 
-  public isLoggedIn(){
-    return localStorage.getItem('ACCESS_TOKEN') !== null;
 
-  
+  get isLoggedIn() {
+    return localStorage.getItem('Token');
   }
   logout() {
     // remove user from local storage and set current user to null
-    localStorage.removeItem('user');
+    localStorage.removeItem('Token') !== null;
     this.router.navigate(['/login']);
 }
 }

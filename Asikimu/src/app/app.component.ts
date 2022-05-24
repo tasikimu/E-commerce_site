@@ -11,17 +11,21 @@ export class AppComponent {
   title = 'Login Page';
   itemInCart: number;
 
-  constructor(private cartService: CartService, private userService: UserService){}
+  showButtons: boolean = true;
+
+  constructor(private cartService: CartService, public userService: UserService){}
 
   ngOnInit(){
     this.cartService.cartItems.subscribe(d => {
       this.itemInCart = d.length
       // console.log(d);
     })
+
   }
 
   logout(){
   this.userService.logout();
+
   }
 
 }

@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   onDelete(i: number){
     this.items.splice(i, 1);
     this.getTotal(this.items)
-    localStorage.removeItem('cart')
+    localStorage.removeItem('data')
   }
 
   validateInput(event: any, i: number){
