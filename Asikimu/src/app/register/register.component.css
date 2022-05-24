@@ -52,15 +52,13 @@
   font-size: 0.95em;
 }
 
-.login input[type="username"],
-.login input[type="password"] {
+.login input {
   background: #fff;
   border-color: #bbb;
   color: #555;
 }
 
-.login input[type="UserName"]:focus,
-.login input[type="Password"]:focus {
+.login input:focus {
   border-color: #888;
 }
 
@@ -79,8 +77,7 @@
   border-color: #05a;
 }
 
-.has-error input[type="Username"],
-.has-error input[type="Password"] {
+.has-error input {
     border-color: rgb(216, 12, 12);
     color: rgb(230, 14, 14);
 }

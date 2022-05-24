@@ -3,6 +3,7 @@ import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import {ActivatedRoute} from '@angular/router';
 import { Product } from '../product.model';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
   displayedImg = 0;
 
-  constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
+  constructor(private notification: NotificationService ,private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // First get the product id from the current route.
@@ -29,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product: any){
     this.cartService.addItem(product)
+    this.notification.showSuccess("Item was added successfully", "Success")
   }
 
 }

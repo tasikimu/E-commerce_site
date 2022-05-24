@@ -29,8 +29,8 @@
       <div *ngIf="formControls.Email.errors.required" style="color: red">Email is required!</div>
     </div>
 
-    <p [ngClass]="{ 'has-error': submitted && formControls['Address'].errors }" class="form-controller">
-      <input placeholder="Address" formControlName="Address">
+    <p [ngClass]="{ 'has-error': submitted && formControls['Address'].errors }">
+      <input placeholder="Address" formControlName="Address" type="email">
     </p>
 
     <div *ngIf="submitted && formControls['Address'].errors" class="help-block">
