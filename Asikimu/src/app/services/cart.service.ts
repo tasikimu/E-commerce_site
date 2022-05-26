@@ -16,6 +16,7 @@ export class CartService {
 
     if(ls) this.cartItems.next(ls);
    }
+   
 
   addItem(product: Product) {
     const ls = this.getCartData();

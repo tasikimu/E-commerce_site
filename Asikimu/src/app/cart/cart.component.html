@@ -31,6 +31,7 @@
           </div>
           <div class="row">
             <div class="col"></div>
+            
         <div class="col-5">
           <h4 style="color: rgb(3, 91, 126)">SubTotal: <span><strong>{{total | currency: 'R '}}</strong></span></h4>
           <h4 style="color: rgb(3, 91, 126)">Shipping: <span style="color: red;"><b>FREE</b></span></h4>
@@ -50,41 +51,5 @@
 
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
-</p>
+</p> -->
 
-<div class="cart-item" *ngFor="">
-  <span>{{ item.name }} </span>
-  <span>{{ item.Price | currency: 'ZAR ' }}</span>
-</div>
-
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-
-  <div>
-    <label for="name" required="required">
-      Name
-    </label>
-    <input id="name" type="text" required="required" placeholder="Name" formControlName="name">
-  </div>
-  <div>
-    <label for="surname" required="required">
-      Surname
-    </label>
-    <input id="surname" placeholder="Surname" type="text" formControlName="surname">
-  </div>
-  <div>
-    <label for="name" required="required">
-      Number
-    </label>
-    <input id="number" type="text" required="required" placeholder="Number" formControlName="number">
-  </div>
-
-  <div>
-    <label for="address" required="required">
-      Address
-    </label>
-    <input id="address" required="required" placeholder="Address" type="text" formControlName="address">
-  </div>
-
-  <button class="button" type="submit">Purchase</button>
-
-</form> -->

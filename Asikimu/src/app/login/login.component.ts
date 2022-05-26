@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.value);
     this.isSubmitted = true;
     if(this.loginForm.invalid){
-      this.notification.showError("Login was uncussful", "error")
+      this.notification.showError("Invalid Login", "error")
 
       return;
     }

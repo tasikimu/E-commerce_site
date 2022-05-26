@@ -14,7 +14,11 @@ export class RegisterComponent implements OnInit {
 
 
   form : FormGroup;
-  get formControls() { return this.form.controls; }
+
+  get formControls()
+  {
+    return this.form.controls;
+  }
 
 
   constructor(private notification: NotificationService ,private userService: UserService, private router: Router, private formBuilder: FormBuilder,) { }
@@ -23,7 +27,7 @@ export class RegisterComponent implements OnInit {
   {
     this.submitted = true;
     if(this.form.invalid){
-      this.notification.showError("Please fill all the input", "Error")
+      this.notification.showError("Please make sure all the inputs are filled correctly", "Error")
 
       return;
     }
@@ -33,7 +37,7 @@ export class RegisterComponent implements OnInit {
     });
     this.userService.registerUser(this.form.value);
     this.notification.showSuccess("New user registered successfully", "Success")
-    this.router.navigateByUrl('/cart');
+    this.router.navigateByUrl('/login');
   }
 
   ngOnInit(){

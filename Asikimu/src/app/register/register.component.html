@@ -1,6 +1,4 @@
-<h1 style="text-align:center">
-  Register Page
-</h1>
+
 <div class="login">
   <h2 class="login-header">Register</h2>
   <form [formGroup]="form" class="login-container" (ngSubmit)="onFormSubmit()">
@@ -29,7 +27,7 @@
       <div *ngIf="formControls.Email.errors.required" style="color: red">Email is required!</div>
     </div>
 
-    <p [ngClass]="{ 'has-error': submitted && formControls['Address'].errors }">
+    <p [ngClass]="{ 'has-error': submitted && formControls['Address'].errors }"  >
       <input placeholder="Address" formControlName="Address" type="email">
     </p>
 
